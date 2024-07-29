@@ -1,0 +1,67 @@
+.card {
+  width: 20em;
+  border-radius: 0.5em;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5em;
+  &__banner {
+    height: 8rem;
+    background-color: #222;
+
+    display: flex;
+    align-items: end;
+    justify-content: center;
+  }
+  &__img {
+    max-width: 6em;
+    border-radius: 50%;
+    transform: translateY(50%);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  }
+  &__content {
+    padding: 1em 1em 2em 1em;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+  &__name {
+    text-align: center;
+    font-weight: 600;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    font-weight: 400;
+
+    &-info {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    &-icon {
+      width: 1.2em;
+      color: #222222cc;
+    }
+  }
+}
+.skeleton {
+  width: 6em;
+  height: 6em;
+  border-radius: 50%;
+  animation: skeleton-loading 1s infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}

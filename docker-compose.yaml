@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+  back:
+    container_name: prodigiosovolcan
+    build:
+      context: ./prodigioso_volcan_api
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      MONGO_URL: mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongo:27017
+      MONGO_DB_NAME: ${MONGO_DB_NAME}
+      FRONT_URL: ${FRONT_URL}
+      CLIENT_ID: ${CLIENT_ID}
+      CLIENT_SECRET: ${CLIENT_SECRET}
+    volumes:
+      - ./prodigioso_volcan_api:/app
+    ports:
+      - 4000:4000
+    depends_on:
+      - mongo-db
+
+  mongo-db:
+    container_name: mongo
+    image: mongo:6.0.6
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    volumes:
+      - ./prodigioso_volcan_api/mongo:/data/db
+    ports:
+      - 27017:27017
+  front:
+    container_name: prodigiosovolcan_front
+    build:
+      context: ./prodigioso_volcan_front
+      dockerfile: Dockerfile
+    environment:
+      VITE_BACK_URL: ${VITE_BACK_URL}
+    # volumes:
+    #   - ./prodigioso_volcan_front:/app
+
+    ports:
+      - 9778:5173
+    stdin_open: true
+    tty: true
