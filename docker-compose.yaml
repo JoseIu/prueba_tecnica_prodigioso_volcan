@@ -31,6 +31,7 @@ services:
       - ./prodigioso_volcan_api/mongo:/data/db
     ports:
       - 27017:27017
+
   front:
     container_name: prodigiosovolcan_front
     build:
@@ -38,6 +39,7 @@ services:
       dockerfile: Dockerfile
     environment:
       VITE_BACK_URL: ${VITE_BACK_URL}
+      VITE_ID_CLIENT: ${VITE_ID_CLIENT}
     # volumes:
     #   - ./prodigioso_volcan_front:/app
 

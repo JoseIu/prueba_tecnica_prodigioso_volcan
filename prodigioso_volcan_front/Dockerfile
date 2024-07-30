@@ -1,20 +1,18 @@
 
 FROM node:20-alpine
 
-ENV NODE_ENV development
+ENV NODE_ENV=development
 
 WORKDIR /app
 
-RUN npm install -g pnpm
+# RUN npm install -g pnpm
 
-COPY package*.json pnpm-lock.yaml ./
+COPY package*.json ./
 
-RUN pnpm install
+RUN npm install
 
 COPY . .
 
 EXPOSE 5173
 
-CMD ["pnpm", "run", "dev"]
-
-
+CMD ["npm", "run", "dev"]
