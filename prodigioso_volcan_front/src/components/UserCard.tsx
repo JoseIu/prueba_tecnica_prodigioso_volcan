@@ -14,12 +14,7 @@ export const UserCard = ({ user }: UserCardProps) => {
   return (
     <article className="card">
       <div className="card__banner">
-        <img
-          className="card__img skeleton"
-          loading="lazy"
-          src="https://www.dumpaday.com/wp-content/uploads/2015/12/random-pictures-208.jpg"
-          alt={user.name}
-        />
+        <img className="card__img skeleton" loading="lazy" src={user.picture} alt={user.name} />
       </div>
 
       <div className="card__content">
