@@ -2,6 +2,7 @@ import { CredentialResponse, GoogleLogin, useGoogleLogin } from '@react-oauth/go
 import { useNavigate } from 'react-router-dom';
 import { fetchApi } from '../api/fetchApi';
 import { useAuth } from '../hook/useAuth';
+import './loginPage.scss';
 export const LoginPage = () => {
   const { onLogin } = useAuth();
   const navigate = useNavigate();
@@ -35,9 +36,12 @@ export const LoginPage = () => {
 
   const onHandleError = () => {};
   return (
-    <div>
+    <div className="login wrapper">
+      <h1 className="login__title">Login with GOOOGLE</h1>
       <GoogleLogin onSuccess={onHandleSuccess} onError={onHandleError} />
-      <button onClick={googleLogin}>Login with Google</button>
+      <button className="login__btn" onClick={googleLogin}>
+        Login with Google
+      </button>
     </div>
   );
 };
