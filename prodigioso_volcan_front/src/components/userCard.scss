@@ -1,7 +1,7 @@
 .card {
   width: 20em;
   border-radius: 0.5em;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  box-shadow: var(--box-shadow);
   overflow: hidden;
 
   display: flex;
@@ -9,7 +9,7 @@
   row-gap: 2.5em;
   &__banner {
     height: 8rem;
-    background-color: #222;
+    background-color: var(--black-color);
 
     display: flex;
     align-items: end;
@@ -19,7 +19,7 @@
     max-width: 6em;
     border-radius: 50%;
     transform: translateY(50%);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+    box-shadow: var(--box-shadow);
   }
   &__content {
     padding: 1em 1em 2em 1em;
