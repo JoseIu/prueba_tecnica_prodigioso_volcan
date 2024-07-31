@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   back:
-    container_name: prodigiosovolcan
+    container_name: prodigiosovolcan_api
     build:
       context: ./prodigioso_volcan_api
       dockerfile: Dockerfile
