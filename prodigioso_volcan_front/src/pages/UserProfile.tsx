@@ -5,9 +5,6 @@ import './userProfile.scss';
 export const UserProfile = () => {
   const { authState } = useAuth();
 
-  console.log(authState);
-
-  console.log(authState.user);
   return (
     <section className="profile wrapper">
       <h1 className="profile__title">User Profile: {authState.user?.name}</h1>
