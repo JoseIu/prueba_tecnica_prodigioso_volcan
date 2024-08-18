@@ -28,7 +28,7 @@ const loginGoogleController = async (req: Request, res: Response) => {
       message: 'Usuario logeado correctamente'
     });
   }
-  return responseApi(res, 200, { error: false, user: existUser, message: 'Usuario logeado correctamente' });
+  return responseApi(res, 200, { user: existUser, message: 'Usuario logeado correctamente' });
 };
 
 const loginGoogleV2Controller = async (req: Request, res: Response) => {
@@ -47,9 +47,9 @@ const loginGoogleV2Controller = async (req: Request, res: Response) => {
     const newUser = new User(userDataByToken);
     const newUserSaved = await newUser.save();
 
-    return responseApi(res, 201, { error: false, user: newUserSaved, message: 'Usuario logeado correctamente' });
+    return responseApi(res, 201, { user: newUserSaved, message: 'Usuario logeado correctamente' });
   }
-  return responseApi(res, 200, { error: false, user: existUser, message: 'Usuario logeado correctamente' });
+  return responseApi(res, 200, { user: existUser, message: 'Usuario logeado correctamente' });
 };
 
 export default {
