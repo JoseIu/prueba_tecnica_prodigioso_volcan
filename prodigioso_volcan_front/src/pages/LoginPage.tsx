@@ -12,10 +12,10 @@ export const LoginPage = () => {
     const dataUser = await fetchApi('/login-google', 'POST', credential!);
 
     if (dataUser.error) {
-      console.log(dataUser.message);
+      console.log(dataUser.data.message);
       return;
     }
-    const { user } = dataUser;
+    const { user } = dataUser.data;
     onLogin(user);
     navigate('/user-profile');
   };
@@ -24,10 +24,10 @@ export const LoginPage = () => {
     onSuccess: async (tokenResponse) => {
       const dataUser = await fetchApi('/login-googlev2', 'POST', '', tokenResponse.code);
       if (dataUser.error) {
-        console.log(dataUser.message);
+        console.log(dataUser.data.message);
         return;
       }
-      const { user } = dataUser;
+      const { user } = dataUser.data;
       onLogin(user);
       navigate('/user-profile');
     },
