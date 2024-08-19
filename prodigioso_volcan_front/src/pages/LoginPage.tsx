@@ -37,7 +37,7 @@ export const LoginPage = () => {
   const onHandleError = () => {};
   return (
     <div className="login wrapper">
-      <h1 className="login__title">Login with GOOOGLE</h1>
+      <h1 className="login__title">Login with GOOGLE</h1>
       <GoogleLogin onSuccess={onHandleSuccess} onError={onHandleError} />
       <button className="login__btn" onClick={googleLogin}>
         Login with Google

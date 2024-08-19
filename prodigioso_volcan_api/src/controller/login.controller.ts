@@ -23,7 +23,6 @@ const loginGoogleController = async (req: Request, res: Response) => {
     const newUser = new User(userDataByToken);
     const newUserSaved = await newUser.save();
     return responseApi(res, 201, {
-      error: false,
       user: newUserSaved,
       message: 'Usuario logeado correctamente'
     });
